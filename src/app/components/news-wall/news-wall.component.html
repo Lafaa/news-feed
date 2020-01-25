@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="posts">
+        <app-post *ngFor="let p of displayedPosts" [post]="p" [alreadyLiked]="false" (likeClicked)="like(p)"
+            (comment)="comment($event, p)"></app-post>
+    </div>
+    <div class="stats">
+        <p>
+            Number of likes: {{numberOfLikes}}
+        </p>
+        <p>
+            Number of comments: {{numberOfComments}}
+        </p>
+        <p>
+            Number of posts displayes: {{displayedPosts.length}}
+        </p>
+        <button [disabled]="!updatesAvailable" (click)="updatePosts()">Refresh to see the latest posts!</button>
+    </div>
+</div>

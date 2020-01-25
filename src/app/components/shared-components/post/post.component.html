@@ -1,0 +1,14 @@
+<div class="post">
+    <h4>{{p.title}}</h4>
+    <p>{{p.textContent}}</p>
+
+    <button [disabled]="alreadyLiked" (click)="like()">Like</button> Number of Likes {{p.numberOfLikes}}
+    <button (click)="showComment()">Comment</button>
+    <h4 *ngIf="p.comments.length > 0">Comments:</h4>
+    <app-comment *ngFor="let c of p.comments" [comment]="c"></app-comment>
+    <div class="commentInput" *ngIf="showInput">
+        <input type="text" #commentText>
+        <button (click)="sendComment()">Send</button>
+        <button (click)="cancel()">Cancel</button>
+    </div>
+</div>
